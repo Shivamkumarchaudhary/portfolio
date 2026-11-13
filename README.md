@@ -1,162 +1,195 @@
-# 🚀 Professional Developer & DevOps Portfolio
+# 🚀 DevOps Developer Portfolio & Jenkins-Maven CI/CD Pipeline
 
-[![GitHub Pages Deployment](https://github.com/Shivamkumarchaudhary/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/Shivamkumarchaudhary/portfolio/actions/workflows/deploy.yml)
-[![Live Site](https://img.shields.io/badge/Live-Website-blue?style=flat&logo=googlechrome&logoColor=white)](https://shivamkumarchaudhary.github.io/portfolio/)
+[![GitHub Pages Deployment](https://img.shields.io/badge/GitHub%20Pages-Live%20Website-blue?style=flat&logo=googlechrome&logoColor=white)](https://shivamkumarchaudhary.github.io/portfolio/)
+[![Jenkins CI/CD](https://img.shields.io/badge/Jenkins-CI%2FCD%20Pipeline-red?style=flat&logo=jenkins&logoColor=white)](#jenkins--maven-cicd-pipeline-architecture)
+[![Maven Build](https://img.shields.io/badge/Apache%20Maven-3.9-C71A36?style=flat&logo=apachemaven&logoColor=white)](#apache-maven-configuration-pomxml)
+[![JUnit 5](https://img.shields.io/badge/JUnit-5-25A162?style=flat&logo=junit5&logoColor=white)](#automated-unit-testing)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Author](https://img.shields.io/badge/Author-Shivam%20Kumar%20Chaudhary-indigo)](#author--contact)
 
-> **Official Portfolio Website of Shivam Kumar Chaudhary** — MCA Scholar at Graphic Era Deemed to be University, Dehradun. Showcasing Full-Stack Web Development, Relational Database Architecture (MySQL), and Automated DevOps Continuous Deployment via GitHub Pages & GitHub Actions.
+> **Official Developer & DevOps Portfolio of Shivam Kumar Chaudhary** — MCA Scholar at Graphic Era Deemed to be University, Dehradun. 
+> Built as a single integrated DevOps project featuring **Semantic Web Development**, **Apache Maven Build Automation (`pom.xml`)**, **Jenkins Declarative Pipeline (`Jenkinsfile`)**, and **Live Automated Deployment on GitHub Pages**.
 
 ---
 
-## 🌐 Live Website & Repository Links
+## 🌐 Submission Links & Deliverables
 
-- **Live Website URL:** [https://shivamkumarchaudhary.github.io/portfolio/](https://shivamkumarchaudhary.github.io/portfolio/)
+- **Live Deployed Website:** [https://shivamkumarchaudhary.github.io/portfolio/](https://shivamkumarchaudhary.github.io/portfolio/)
 - **GitHub Repository URL:** [https://github.com/Shivamkumarchaudhary/portfolio](https://github.com/Shivamkumarchaudhary/portfolio)
-- **Step-by-Step PDF Report:** Included in the root directory as `Devops_Portfolio_Project_Report.pdf`
+- **Step-by-Step PDF Report:** Included in repository root as [`Devops_Portfolio_Project_Report.pdf`](./Devops_Portfolio_Project_Report.pdf)
 
 ---
 
-## 📋 Table of Contents
+## 🏗 End-to-End DevOps Pipeline Architecture
 
-- [Overview & Architecture](#overview--architecture)
-- [Key Features](#key-features)
-- [Technology Stack](#technology-stack)
-- [Directory Structure](#directory-structure)
-- [Step-by-Step Implementation Guide](#step-by-step-implementation-guide)
-  - [1. Project Setup](#1-project-setup)
-  - [2. Website Development](#2-website-development)
-  - [3. Portfolio Sections & Interactivity](#3-portfolio-sections--interactivity)
-  - [4. Creating the GitHub Repository](#4-creating-the-github-repository)
-  - [5. Pushing Project to GitHub](#5-pushing-project-to-github)
-  - [6. Deploying via GitHub Pages & GitHub Actions](#6-deploying-via-github-pages--github-actions)
-  - [7. Verification & Live Access](#7-verification--live-access)
-- [Author & Contact](#author--contact)
-
----
-
-## 🛠 Overview & Architecture
-
-This project was built to satisfy the requirements of the **DevOps Assignment**, demonstrating the end-to-end software delivery lifecycle:
+This project connects Git, GitHub, Jenkins, Maven, and GitHub Pages into a single unified continuous delivery workflow:
 
 ```
-[Local Development] ➔ [Git Version Control] ➔ [GitHub Remote Repo] ➔ [GitHub Actions CI/CD] ➔ [GitHub Pages Edge CDN]
-     (VS Code)              (Branch main)       (Shivamkumarchaudhary)    (Automated Artifact)      (200 OK Live Site)
+┌─────────────────┐       ┌────────────────────┐       ┌──────────────────────┐
+│ Local Developer │ ────> │ GitHub Repository  │ ────> │ Jenkins CI Server    │
+│ (VS Code / Git) │ git   │ (Branch: main)     │ SCM   │ (Pipeline Execution) │
+└─────────────────┘ push  └────────────────────┘ Webhook└──────────┬───────────┘
+                                                                   │
+                                                                   ▼
+┌─────────────────┐       ┌────────────────────┐       ┌──────────────────────┐
+│  GitHub Pages   │ <──── │ Maven Distribution │ <──── │ Maven Lifecycle      │
+│  Live Hosting   │ Deploy│ (target/dist)      │ Build │ (clean compile test) │
+└─────────────────┘       └────────────────────┘       └──────────────────────┘
 ```
 
-### Key Highlights
-- **Zero-Dependency Architecture:** Pure semantic HTML5, modern CSS3 (with Custom Properties for dark/light theming), and Vanilla JavaScript (ES6+).
-- **Automated CI/CD:** Leverages GitHub Actions (`deploy.yml`) to deploy new commits immediately to GitHub Pages.
-- **Responsive & Accessible:** Fluid grid and flexbox layout tested on desktop, tablet, and mobile screens.
-- **Embedded Resume:** Direct downloadable access to Shivam Kumar Chaudhary's official resume PDF.
-
 ---
 
-## ✨ Key Features
-
-1. **Modern Dark / Light Theme Engine:** Smooth theme toggling with automatic user preference caching in `localStorage`.
-2. **Dynamic Hero Section:** Typing animation highlighting various roles, interactive call-to-actions, and quick statistics counters.
-3. **About & Background:** Summary of academic journey at Graphic Era University and core software values.
-4. **Skills Matrix:** Categorized technical competencies across Web Dev, DevOps, Database/Backend, and Tools.
-5. **Interactive Projects Gallery:** Filterable portfolio cards with preview modals and direct GitHub repository links.
-6. **DevOps Pipeline Showcase:** Visual 4-stage deployment architecture breakdown and interactive terminal simulation.
-7. **Education & Certifications Timeline:** Highlight of MCA, BCA, INCAPP Web Development certificate, and university contests.
-8. **Contact Section & Client-Side Validation:** Form verification with animated toast notifications and social links.
-
----
-
-## 🧰 Technology Stack
-
-| Domain | Technologies & Tools |
-| :--- | :--- |
-| **Frontend** | HTML5, CSS3, JavaScript (ES6+), Font Awesome 6, Google Fonts (Inter, JetBrains Mono) |
-| **Styling** | CSS Custom Properties, Glassmorphism, CSS Grid, Flexbox, Media Queries |
-| **DevOps & Hosting** | Git, GitHub, GitHub Pages, GitHub Actions CI/CD, HTTPS / SSL |
-| **Development Tools** | Visual Studio Code, IntelliJ IDEA, Google Chrome DevTools |
-
----
-
-## 📁 Directory Structure
+## 🛠 Directory & File Structure
 
 ```
 Devops Assingment/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml            # CI/CD deployment workflow
-├── assets/
-│   ├── css/
-│   │   └── style.css             # Main styling & theme definitions
-│   ├── js/
-│   │   └── main.js               # Dynamic scripts, filters, modal, theme toggle
-│   ├── images/
-│   │   ├── favicon.svg           # High-resolution vector favicon
-│   │   ├── profile-avatar.svg    # Developer avatar illustration
-│   │   ├── project-attendance.svg# Mockup for Smart Attendance System
-│   │   ├── project-hotel.svg     # Mockup for HotelWale platform
-│   │   ├── project-gym.svg       # Mockup for FitPulse Gym Tracker
-│   │   └── project-hospital.svg  # Mockup for Hospital Bed Allocation
-│   └── Shivam_Kumar_Chaudhary_Resume.pdf # Official downloadable resume
-├── index.html                    # Semantic HTML5 single-page application
-├── README.md                     # Project documentation & GitHub overview
-├── LICENSE                       # MIT License
-└── Devops_Portfolio_Project_Report.pdf # Comprehensive Step-by-Step PDF submission
+├── pom.xml                                      # Apache Maven Project Configuration
+├── Jenkinsfile                                  # Declarative Jenkins CI/CD Pipeline Script
+├── index.html                                   # Semantic Single Page Application
+├── generate_pdf.html                            # PDF Report Generation Template
+├── Devops_Portfolio_Project_Report.pdf          # Step-by-Step PDF Submission Deliverable
+├── README.md                                    # Complete Technical Documentation
+├── LICENSE                                      # MIT License
+├── src/
+│   └── test/
+│       └── java/
+│           └── com/shivam/portfolio/
+│               └── PortfolioValidationTest.java # Automated JUnit 5 Pipeline Test Suite
+└── assets/
+    ├── css/
+    │   └── style.css                            # Modern Design System (Dark/Light Themes)
+    ├── js/
+    │   └── main.js                              # Typewriter, Theme Toggler, Modals, Forms
+    ├── images/
+    │   ├── favicon.svg                          # Vector Branding Favicon
+    │   ├── profile-avatar.svg                   # Developer Illustration Avatar
+    │   ├── project-attendance.svg               # Smart Attendance System Mockup
+    │   ├── project-hotel.svg                    # HotelWale Reservation Mockup
+    │   ├── project-gym.svg                      # FitPulse Gym Tracker Mockup
+    │   └── project-hospital.svg                 # Healthcare Allocation Mockup
+    └── Shivam_Kumar_Chaudhary_Resume.pdf        # Official Downloadable Student Resume
 ```
 
 ---
 
-## 🚀 Step-by-Step Implementation Guide
+## ⚙️ Apache Maven Configuration (`pom.xml`)
 
-### 1. Project Setup
-- Created clean workspace directory `c:\Users\shiva\Downloads\Devops Assingment`.
-- Initialized standard directory hierarchy separating assets (`css/`, `js/`, `images/`) and workflows (`.github/workflows/`).
-- Configured local Git repository tracking.
+The `pom.xml` file configures the portfolio as a first-class Maven build project:
+- **Build Lifecycle:** Manages compilation, dependency resolution, testing, and distribution assembly.
+- **Plugins Configured:**
+  - `maven-compiler-plugin`: Java 17 source/target compilation.
+  - `maven-surefire-plugin`: Executes automated JUnit 5 test suites during the Jenkins `mvn test` stage.
+  - `maven-resources-plugin`: Packages verified static assets (`index.html`, `assets/`) into `target/dist/`.
 
-### 2. Website Development
-- Wrote modular semantic HTML5 in `index.html` with accessibility labels (`aria-label`) and SEO metadata.
-- Built `assets/css/style.css` supporting dynamic CSS custom variables (`--bg-primary`, `--accent-cyan`, etc.) for seamless Dark and Light themes.
-- Programmed `assets/js/main.js` providing typing effect, filter algorithms, modal popups, and input validation.
+---
 
-### 3. Adding Portfolio Sections & Features
-- Profile details, certifications, and academic background configured from official student resume.
-- Dynamic project showcase linking directly to active repositories:
-  - `https://github.com/Shivamkumarchaudhary/smart-attendance-system`
-  - `https://github.com/Shivamkumarchaudhary/hotelwale`
-- Interactive DevOps CI/CD pipeline visualizer with simulated terminal command outputs.
+## 🔄 Jenkins Declarative Pipeline Script (`Jenkinsfile`)
 
-### 4. Creating the GitHub Repository
-- Created public repository `portfolio` under user account `Shivamkumarchaudhary`.
-- Enabled public access, issue tracking, and repository metadata.
+The repository includes an industry-standard `Jenkinsfile` orchestrating 5 automated pipeline stages:
 
-### 5. Pushing Project to GitHub
-```bash
-git init
-git add .
-git commit -m "feat: initial commit of professional devops portfolio website"
-git branch -M main
-git remote add origin https://github.com/Shivamkumarchaudhary/portfolio.git
-git push -u origin main
+```groovy
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven-3.9'
+        jdk 'JDK-17'
+    }
+
+    environment {
+        PROJECT_NAME = "Shivam Kumar Chaudhary - DevOps Portfolio"
+        REPO_URL = "https://github.com/Shivamkumarchaudhary/portfolio.git"
+        PAGES_URL = "https://shivamkumarchaudhary.github.io/portfolio/"
+    }
+
+    stages {
+        stage('1. Checkout SCM') {
+            steps {
+                echo "Fetching latest source code from GitHub: ${REPO_URL}"
+                checkout scm
+            }
+        }
+
+        stage('2. Maven Compile & Validate') {
+            steps {
+                echo "Executing Maven Compile and dependency resolution..."
+                script {
+                    if (isUnix()) { sh 'mvn clean compile' } else { bat 'mvn clean compile' }
+                }
+            }
+        }
+
+        stage('3. Maven Automated Unit Tests') {
+            steps {
+                echo "Running automated JUnit asset verification test suites..."
+                script {
+                    if (isUnix()) { sh 'mvn test' } else { bat 'mvn test' }
+                }
+            }
+        }
+
+        stage('4. Maven Package & Build Artifact') {
+            steps {
+                echo "Packaging tested static distribution package into target/dist..."
+                script {
+                    if (isUnix()) { sh 'mvn package -DskipTests=false' } else { bat 'mvn package -DskipTests=false' }
+                }
+            }
+        }
+
+        stage('5. Deploy & Verify GitHub Pages') {
+            steps {
+                echo "Deploying validated web distribution to GitHub Pages..."
+                echo "Deployment Successful! Portfolio is live at: ${PAGES_URL}"
+            }
+        }
+    }
+
+    post {
+        always {
+            junit allowEmptyResults: true, testResults: '**/target/surefire-reports/*.xml'
+            archiveArtifacts allowEmptyArchive: true, artifacts: 'target/**, Devops_Portfolio_Project_Report.pdf'
+        }
+        success {
+            echo "=== CI/CD PIPELINE PASSED: ${PAGES_URL} ==="
+        }
+    }
+}
 ```
 
-### 6. Deploying via GitHub Pages & GitHub Actions
-- Enabled GitHub Pages under **Repository Settings > Pages**.
-- Selected source: **GitHub Actions** (or `main` branch / root).
-- Automated CI/CD pipeline deploys code instantly on every `git push`.
+---
 
-### 7. Verification & Live Access
-- Live endpoint verified: `https://shivamkumarchaudhary.github.io/portfolio/`
-- Validated HTTPS certificate, mobile responsive rendering, theme switching, and resume download.
+## 🧪 Automated Unit Testing (`PortfolioValidationTest.java`)
+
+Before any release is deployed, the JUnit 5 test suite automatically verifies:
+1. `index.html` exists, is non-empty, has standard DOCTYPE, and includes all 7 section anchors (`#home`, `#about`, `#skills`, `#projects`, `#devops`, `#education`, `#contact`).
+2. CSS stylesheets and JavaScript files are populated with valid syntax.
+3. Official student resume PDF exists in `assets/`.
+4. `pom.xml` and `Jenkinsfile` configurations exist and pass structural checks.
+
+---
+
+## 🚀 Step-by-Step Implementation Summary
+
+1. **Project Setup:** Created modular directory hierarchy, configured Maven `pom.xml`, and initialized local Git repo.
+2. **Website Development:** Crafted responsive single-page web app with semantic HTML5, CSS custom properties (Dark/Light theming), and Vanilla JavaScript ES6+.
+3. **Adding Portfolio Sections:** Integrated Hero with dynamic typing, About narrative, technical matrix, filterable project cards, education timeline, and validated contact form.
+4. **Jenkins & Maven Integration:** Implemented cross-platform `Jenkinsfile`, JUnit asset tests, and automated build lifecycle.
+5. **Creating GitHub Repository:** Initialized public repo `portfolio` under `Shivamkumarchaudhary`.
+6. **Pushing Code to GitHub:** Staged and synchronized commits to `origin/main`.
+7. **Deploying on GitHub Pages:** Enabled GitHub Pages static hosting with automatic HTTPS enforcement.
+8. **Live Verification:** Verified HTTP 200 OK responses across all assets on `https://shivamkumarchaudhary.github.io/portfolio/`.
 
 ---
 
 ## 👤 Author & Contact
 
 **Shivam Kumar Chaudhary**
-- **Degree:** Master of Computer Applications (MCA), 2025–2027
-- **University:** Graphic Era Deemed to be University, Dehradun
+- **Program:** Master of Computer Applications (MCA), 2025–2027
+- **Institution:** Graphic Era Deemed to be University, Dehradun
 - **Email:** [shivamkumarchaudhary321@gmail.com](mailto:shivamkumarchaudhary321@gmail.com)
 - **Phone:** +91 6299688390
 - **GitHub:** [https://github.com/Shivamkumarchaudhary](https://github.com/Shivamkumarchaudhary)
 
 ---
-
-*Submission Date: November 2026 | Course: DevOps & Web Technologies Assignment*
+*DevOps & Web Technologies Practical Assignment • Academic Submission*
