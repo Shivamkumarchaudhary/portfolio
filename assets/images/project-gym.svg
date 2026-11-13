@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350">
+  <defs>
+    <linearGradient id="gymBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b" />
+      <stop offset="100%" stop-color="#27272a" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="350" rx="16" fill="url(#gymBg)" />
+  <rect x="2" y="2" width="596" height="346" rx="14" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.3" />
+  
+  <!-- Browser Header -->
+  <rect x="20" y="20" width="560" height="36" rx="8" fill="#09090b" />
+  <circle cx="45" cy="38" r="6" fill="#ef4444" />
+  <circle cx="65" cy="38" r="6" fill="#f59e0b" />
+  <circle cx="85" cy="38" r="6" fill="#10b981" />
+  <text x="300" y="43" font-family="monospace" font-size="13" fill="#f59e0b" text-anchor="middle">fitpulse.local/gym-tracker</text>
+  
+  <!-- Analytics Grid -->
+  <g transform="translate(40, 80)">
+    <!-- Stat 1 -->
+    <rect width="165" height="100" rx="12" fill="#09090b" stroke="#3f3f46" />
+    <text x="20" y="35" font-family="sans-serif" font-size="12" fill="#a1a1aa">Active Members</text>
+    <text x="20" y="70" font-family="sans-serif" font-size="28" font-weight="900" fill="#f59e0b">482</text>
+    <text x="20" y="88" font-family="sans-serif" font-size="10" fill="#10b981">↑ +14% this month</text>
+    
+    <!-- Stat 2 -->
+    <g transform="translate(180, 0)">
+      <rect width="165" height="100" rx="12" fill="#09090b" stroke="#3f3f46" />
+      <text x="20" y="35" font-family="sans-serif" font-size="12" fill="#a1a1aa">Workouts Logged</text>
+      <text x="20" y="70" font-family="sans-serif" font-size="28" font-weight="900" fill="#38bdf8">1,240</text>
+      <text x="20" y="88" font-family="sans-serif" font-size="10" fill="#38bdf8">High Engagement</text>
+    </g>
+    
+    <!-- Stat 3 -->
+    <g transform="translate(360, 0)">
+      <rect width="160" height="100" rx="12" fill="#09090b" stroke="#3f3f46" />
+      <text x="20" y="35" font-family="sans-serif" font-size="12" fill="#a1a1aa">Renewals Pending</text>
+      <text x="20" y="70" font-family="sans-serif" font-size="28" font-weight="900" fill="#ec4899">18</text>
+      <text x="20" y="88" font-family="sans-serif" font-size="10" fill="#ec4899">Requires Action</text>
+    </g>
+  </g>
+  
+  <!-- Activity Sparkline Chart -->
+  <g transform="translate(40, 205)">
+    <rect width="520" height="110" rx="12" fill="#09090b" stroke="#27272a" />
+    <text x="25" y="30" font-family="sans-serif" font-size="12" font-weight="700" fill="#f4f4f5">Weekly Attendance Velocity</text>
+    <!-- Bars -->
+    <rect x="25" y="65" width="40" height="35" rx="4" fill="#f59e0b" opacity="0.4" />
+    <rect x="100" y="55" width="40" height="45" rx="4" fill="#f59e0b" opacity="0.6" />
+    <rect x="175" y="45" width="40" height="55" rx="4" fill="#f59e0b" opacity="0.7" />
+    <rect x="250" y="35" width="40" height="65" rx="4" fill="#f59e0b" />
+    <rect x="325" y="40" width="40" height="60" rx="4" fill="#f59e0b" opacity="0.8" />
+    <rect x="400" y="50" width="40" height="50" rx="4" fill="#f59e0b" opacity="0.6" />
+    <rect x="470" y="30" width="30" height="70" rx="4" fill="#10b981" />
+  </g>
+</svg>

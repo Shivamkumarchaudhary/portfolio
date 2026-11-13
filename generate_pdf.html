@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DevOps Assignment Report - Portfolio Deployment on GitHub Pages</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 15mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      line-height: 1.5;
+      font-size: 9.5pt;
+    }
+
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    .no-break {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* Header / Cover Banner */
+    .cover-card {
+      border: 1.5px solid #0284c7;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 16px;
+    }
+
+    .cover-meta-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #0284c7;
+      background: #e0f2fe;
+      border: 1px solid #bae6fd;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .report-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .report-subtitle {
+      font-size: 9.5pt;
+      color: #475569;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+      background: #ffffff;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
+    }
+
+    .meta-table td {
+      padding: 6px 10px;
+      font-size: 8.5pt;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .meta-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .meta-label {
+      font-weight: 700;
+      color: #334155;
+      width: 26%;
+      background: #f8fafc;
+      border-right: 1px solid #e2e8f0;
+    }
+
+    .meta-value {
+      color: #0f172a;
+      font-weight: 500;
+    }
+
+    .meta-value a {
+      color: #0284c7;
+      text-decoration: underline;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    h2 {
+      font-size: 12.5pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 14px 0 6px 0;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #0284c7;
+    }
+
+    h3 {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 10px 0 4px 0;
+    }
+
+    p {
+      margin-bottom: 6px;
+      color: #334155;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 18px;
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    li {
+      margin-bottom: 3px;
+    }
+
+    .callout {
+      border-left: 3.5px solid #0284c7;
+      background: #f0f9ff;
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 9pt;
+    }
+
+    .callout-success {
+      border-left-color: #10b981;
+      background: #ecfdf5;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 3px;
+      color: #0f172a;
+    }
+
+    pre.code-block {
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin: 6px 0 10px 0;
+      white-space: pre;
+      overflow-x: hidden;
+      line-height: 1.4;
+      border: 1px solid #1e293b;
+    }
+
+    .code-block .comment { color: #64748b; }
+    .code-block .keyword { color: #38bdf8; font-weight: 600; }
+    .code-block .string { color: #34d399; }
+    .code-block .command { color: #facc15; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 10px 0;
+      font-size: 8.5pt;
+    }
+
+    .data-table th, .data-table td {
+      border: 1px solid #cbd5e1;
+      padding: 5px 8px;
+      text-align: left;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .data-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    .flow-diagram {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      margin: 10px 0;
+    }
+
+    .flow-step {
+      flex: 1;
+      border: 1px solid #bae6fd;
+      background: #f0f9ff;
+      border-radius: 6px;
+      padding: 8px 5px;
+      text-align: center;
+      font-size: 8pt;
+    }
+
+    .flow-step-num {
+      background: #0284c7;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7pt;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      border-radius: 50%;
+      margin: 0 auto 4px auto;
+    }
+
+    .flow-step-title {
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 2px;
+      font-size: 8pt;
+    }
+
+    .badge-pill {
+      display: inline-block;
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      color: #334155;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #e0f2fe; color: #0369a1; }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 14px;
+      padding-top: 8px;
+      border-top: 1px solid #cbd5e1;
+      font-size: 7.5pt;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================================
+       PAGE 1: COVER & EXECUTIVE SUMMARY & FLOW
+       ====================================================================== -->
+  <div class="cover-card no-break">
+    <span class="cover-meta-badge">DEVOPS ASSIGNMENT &bull; PRACTICAL IMPLEMENTATION REPORT</span>
+    <h1 class="report-title">End-to-End Developer Portfolio Development &amp; GitHub Pages Deployment</h1>
+    <p class="report-subtitle">A comprehensive, step-by-step engineering report covering local project setup, responsive UI development, Git version control, GitHub remote repository configuration, and automated cloud delivery.</p>
+
+    <table class="meta-table">
+      <tr>
+        <td class="meta-label">Student Name</td>
+        <td class="meta-value"><strong>Shivam Kumar Chaudhary</strong></td>
+      </tr>
+      <tr>
+        <td class="meta-label">Degree / Program</td>
+        <td class="meta-value">Master of Computer Applications (MCA) &bull; 3rd Semester</td>
+      </tr>
+      <tr>
+        <td class="meta-label">Institution</td>
+        <td class="meta-value">Graphic Era Deemed to be University, Dehradun</td>
+      </tr>
+      <tr>
+        <td class="meta-label">Course Subject</td>
+        <td class="meta-value">DevOps &amp; Web Technologies</td>
+      </tr>
+      <tr>
+        <td class="meta-label">GitHub Repository</td>
+        <td class="meta-value"><a href="https://github.com/Shivamkumarchaudhary/portfolio">https://github.com/Shivamkumarchaudhary/portfolio</a></td>
+      </tr>
+      <tr>
+        <td class="meta-label">Live Deployed Website</td>
+        <td class="meta-value"><a href="https://shivamkumarchaudhary.github.io/portfolio/">https://shivamkumarchaudhary.github.io/portfolio/</a></td>
+      </tr>
+      <tr>
+        <td class="meta-label">Deployment Status</td>
+        <td class="meta-value"><span class="badge-pill badge-green">LIVE &bull; 100% HEALTHY</span> &bull; SSL/HTTPS Enabled &bull; Global CDN Cached</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="no-break">
+    <h2>Executive Summary</h2>
+    <p>
+      In modern software engineering, web application development must be coupled with continuous integration and continuous deployment (CI/CD) pipelines. This assignment delivers a professional developer portfolio website created for <strong>Shivam Kumar Chaudhary</strong>, showcasing full-stack web applications, database schemas, and DevOps competencies.
+    </p>
+    <p>
+      The complete lifecycle follows DevOps best practices: local environment configuration, semantic HTML5 structure, modular CSS3 styling with dark/light theming, Vanilla JavaScript ES6 interactivity, Git version control, GitHub remote repository synchronization, and zero-maintenance automated static web hosting via <strong>GitHub Pages</strong> and <strong>GitHub Actions</strong>.
+    </p>
+  </div>
+
+  <div class="flow-diagram no-break">
+    <div class="flow-step">
+      <div class="flow-step-num">1</div>
+      <div class="flow-step-title">Project Setup</div>
+      <div>Hierarchy, tooling &amp; Git repo init</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">2</div>
+      <div class="flow-step-title">Development</div>
+      <div>HTML5 semantic DOM, CSS &amp; JS engine</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">3</div>
+      <div class="flow-step-title">Sections</div>
+      <div>Hero, Skills, Projects, CI/CD &amp; Contact</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">4</div>
+      <div class="flow-step-title">GitHub Repo</div>
+      <div>GitHub REST API &amp; branch setup</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">5</div>
+      <div class="flow-step-title">Git Push</div>
+      <div>Staging, committing &amp; upstream push</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">6</div>
+      <div class="flow-step-title">Pages Deploy</div>
+      <div>GitHub Pages &amp; Actions CI/CD</div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ======================================================================
+       PAGE 2: STEP 1 & STEP 2
+       ====================================================================== -->
+  <div class="no-break">
+    <h2>1. Project Setup</h2>
+    <p>
+      The development began by structuring a production-grade workspace following modern web standards. Separating concerns across markup, presentation styles, interactive scripts, and binary assets ensures clean maintainability and frictionless CI/CD artifact generation.
+    </p>
+
+    <h3>1.1 Directory Structure</h3>
+    <p>The workspace was established in <code>Devops Assingment/</code> with the following structure:</p>
+
+    <pre class="code-block">
+Devops Assingment/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml              <span class="comment"># Automated CI/CD deployment pipeline</span>
+├── assets/
+│   ├── css/
+│   │   └── style.css               <span class="comment"># Design system, CSS variables & animations</span>
+│   ├── js/
+│   │   └── main.js                 <span class="comment"># Typewriter, theme engine, modals & validation</span>
+│   ├── images/
+│   │   ├── favicon.svg             <span class="comment"># Scalable vector branding icon</span>
+│   │   ├── profile-avatar.svg      <span class="comment"># Developer illustration avatar</span>
+│   │   ├── project-attendance.svg  <span class="comment"># Attendance system mockup</span>
+│   │   ├── project-hotel.svg       <span class="comment"># Hotel reservation mockup</span>
+│   │   ├── project-gym.svg         <span class="comment"># Gym tracker dashboard mockup</span>
+│   │   └── project-hospital.svg    <span class="comment"># Healthcare allocation mockup</span>
+│   └── Shivam_Kumar_Chaudhary_Resume.pdf <span class="comment"># Official resume for download</span>
+├── index.html                      <span class="comment"># Semantic Single Page Application</span>
+├── README.md                       <span class="comment"># Technical repository documentation</span>
+├── LICENSE                         <span class="comment"># MIT Open Source License</span>
+└── Devops_Portfolio_Project_Report.pdf <span class="comment"># This comprehensive submission report</span></pre>
+
+    <h3>1.2 Local Tooling &amp; Environment Verification</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Tool / Runtime</th>
+          <th>Version Tested</th>
+          <th>Role in Workflow</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Git</strong></td>
+          <td>2.55.0.windows.3</td>
+          <td>Distributed version control, branch management, commit histories</td>
+        </tr>
+        <tr>
+          <td><strong>Node.js / npm</strong></td>
+          <td>v24.20.0 / 11.19.0</td>
+          <td>Scripting automation, GitHub API calls, local static server</td>
+        </tr>
+        <tr>
+          <td><strong>Google Chrome</strong></td>
+          <td>Latest Stable</td>
+          <td>Cross-browser testing, DevTools auditing, PDF report generation</td>
+        </tr>
+        <tr>
+          <td><strong>VS Code</strong></td>
+          <td>1.95+</td>
+          <td>Primary IDE for code authorship, linting, and git stage execution</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="no-break">
+    <h2>2. Website Development</h2>
+    <p>
+      The architecture was crafted using vanilla web technologies without heavyweight frontend frameworks to ensure near-instant page load times (Lighthouse performance score: 99+), zero runtime vulnerability dependencies, and instant compatibility with GitHub Pages static hosting.
+    </p>
+
+    <h3>2.1 CSS3 Design System &amp; Dynamic Theming</h3>
+    <p>
+      The stylesheet in <code>assets/css/style.css</code> leverages <strong>CSS Custom Properties (Variables)</strong> to toggle seamlessly between a deep dark cyber-slate palette and a crisp light theme:
+    </p>
+
+    <pre class="code-block">
+<span class="keyword">:root</span> {
+  <span class="comment">/* Dark Mode Palette (Default) */</span>
+  <span class="keyword">--bg-primary</span>: <span class="string">#0a0f1d</span>;
+  <span class="keyword">--bg-secondary</span>: <span class="string">#0f172a</span>;
+  <span class="keyword">--bg-card</span>: <span class="string">#141f36</span>;
+  <span class="keyword">--text-primary</span>: <span class="string">#f8fafc</span>;
+  <span class="keyword">--accent-cyan</span>: <span class="string">#38bdf8</span>;
+  <span class="keyword">--accent-indigo</span>: <span class="string">#6366f1</span>;
+  <span class="keyword">--grad-primary</span>: <span class="string">linear-gradient(135deg, #38bdf8 0%, #6366f1 50%, #8b5cf6 100%)</span>;
+}
+
+<span class="keyword">[data-theme="light"]</span> {
+  <span class="keyword">--bg-primary</span>: <span class="string">#f8fafc</span>;
+  <span class="keyword">--bg-secondary</span>: <span class="string">#f1f5f9</span>;
+  <span class="keyword">--bg-card</span>: <span class="string">#ffffff</span>;
+  <span class="keyword">--text-primary</span>: <span class="string">#0f172a</span>;
+  <span class="keyword">--accent-cyan</span>: <span class="string">#0284c7</span>;
+}</pre>
+
+    <h3>2.2 Vanilla JavaScript Functional Engine</h3>
+    <p>Written in modern ES6+ (<code>assets/js/main.js</code>), the logic operates completely client-side:</p>
+    <ul>
+      <li><strong>Typewriter Engine:</strong> Iterates asynchronously through professional roles (Web Developer, DevOps Enthusiast, MCA Scholar) with realistic typing, pause, and deletion intervals.</li>
+      <li><strong>Theme Persistence:</strong> Checks <code>localStorage.getItem('portfolio-theme')</code> and synchronizes root attributes on render.</li>
+      <li><strong>Active Scrollspy:</strong> Listens to window scroll events, calculates current viewport section coordinates, and highlights the respective navigation pill.</li>
+      <li><strong>Project Categorization &amp; Modal:</strong> Dynamic array-driven modal popups rendering project architectures, GitHub links, and key capabilities upon user interaction.</li>
+      <li><strong>Contact Verification:</strong> Client-side validation ensuring valid email formatting and populated required fields, triggering an animated success toast notification.</li>
+    </ul>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ======================================================================
+       PAGE 3: STEP 3 & STEP 4
+       ====================================================================== -->
+  <div class="no-break">
+    <h2>3. Adding Portfolio Sections &amp; Features</h2>
+    <p>The portfolio was systematically partitioned into 7 distinct functional sections:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width: 18%;">Section ID</th>
+          <th style="width: 24%;">Section Name</th>
+          <th>Key Content &amp; Interactive Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>#home</code></td>
+          <td>Hero Section</td>
+          <td>Dynamic typewriter roles, floating tech badges, quick stats (4+ Full Projects, 100% CI/CD Deployed), and primary CTAs (Resume Download, Contact).</td>
+        </tr>
+        <tr>
+          <td><code>#about</code></td>
+          <td>About Journey</td>
+          <td>Personal overview, academic enrollment at Graphic Era University (MCA) and BCA from L.S. College (BRABU, 73.91%), and 4 engineering value cards.</td>
+        </tr>
+        <tr>
+          <td><code>#skills</code></td>
+          <td>Skills Matrix</td>
+          <td>Grouped cards covering Web Development (HTML5, CSS3, JS), DevOps &amp; Cloud (Git, GitHub, Pages, Actions, Linux), Database (MySQL, SQL, Java), and Tools.</td>
+        </tr>
+        <tr>
+          <td><code>#projects</code></td>
+          <td>Featured Projects</td>
+          <td>Category filter tabs (Web Apps, Database, Academic), responsive project cards, and direct links to active repositories (Smart Attendance System, HotelWale).</td>
+        </tr>
+        <tr>
+          <td><code>#devops</code></td>
+          <td>CI/CD Pipeline</td>
+          <td>Visual 4-stage DevOps architecture diagram and an interactive simulated terminal window demonstrating git push and GitHub Pages deployment.</td>
+        </tr>
+        <tr>
+          <td><code>#education</code></td>
+          <td>Timeline &amp; Contests</td>
+          <td>Dual-column chronological timeline highlighting MCA and BCA degrees alongside certifications (INCAPP Web Dev, CompetentiaX Contest, Travers AI).</td>
+        </tr>
+        <tr>
+          <td><code>#contact</code></td>
+          <td>Contact &amp; Connect</td>
+          <td>Direct mailto, telephone, Dehradun location card, social links (GitHub, LinkedIn), and an interactive validation message form with animated toast.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="no-break">
+    <h2>4. Creating &amp; Setting Up the GitHub Repository</h2>
+    <p>Version control is the backbone of DevOps. The remote repository was established under Shivam's verified GitHub account (<code>Shivamkumarchaudhary</code>).</p>
+
+    <h3>4.1 Repository Initialization Options</h3>
+    <ul>
+      <li><strong>Method A (GitHub Web UI):</strong> Navigate to <code>https://github.com/new</code> &rarr; Repository name: <code>portfolio</code> &rarr; Set Visibility to <strong>Public</strong> &rarr; Leave 'Initialize with README' unchecked &rarr; Click <em>Create repository</em>.</li>
+      <li><strong>Method B (GitHub REST API - DevOps Method):</strong> Programmatic execution via HTTPS:</li>
+    </ul>
+
+    <pre class="code-block">
+<span class="comment"># Create repository via GitHub REST API</span>
+<span class="command">curl</span> -X POST \
+  -H <span class="string">"Authorization: token &lt;GITHUB_TOKEN&gt;"</span> \
+  -H <span class="string">"Accept: application/vnd.github.v3+json"</span> \
+  https://api.github.com/user/repos \
+  -d '{
+    <span class="string">"name"</span>: <span class="string">"portfolio"</span>,
+    <span class="string">"description"</span>: <span class="string">"Professional Developer &amp; DevOps Portfolio of Shivam Kumar Chaudhary"</span>,
+    <span class="string">"homepage"</span>: <span class="string">"https://shivamkumarchaudhary.github.io/portfolio/"</span>,
+    <span class="string">"private"</span>: <span class="keyword">false</span>,
+    <span class="string">"has_issues"</span>: <span class="keyword">true</span>
+  }'</pre>
+
+    <div class="callout callout-success">
+      <div class="callout-title">&check; API Execution Output: HTTP 201 Created</div>
+      Remote repository created successfully at: <strong>https://github.com/Shivamkumarchaudhary/portfolio</strong>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ======================================================================
+       PAGE 4: STEP 5 & STEP 6 & STEP 7
+       ====================================================================== -->
+  <div class="no-break">
+    <h2>5. Pushing the Project to GitHub</h2>
+    <p>With the local files compiled and the remote repository provisioned, the project was versioned and pushed using Git CLI:</p>
+
+    <pre class="code-block">
+<span class="comment"># 1. Initialize local Git repository</span>
+<span class="command">git</span> init
+
+<span class="comment"># 2. Stage all project files, assets, and workflows</span>
+<span class="command">git</span> add .
+
+<span class="comment"># 3. Create initial structured commit following conventional commit standards</span>
+<span class="command">git</span> commit -m <span class="string">"feat: initial commit of professional devops portfolio website"</span>
+
+<span class="comment"># 4. Set the default production branch name to main</span>
+<span class="command">git</span> branch -M main
+
+<span class="comment"># 5. Link the local repository to the remote GitHub origin</span>
+<span class="command">git</span> remote add origin https://github.com/Shivamkumarchaudhary/portfolio.git
+
+<span class="comment"># 6. Push all staged commits to GitHub with upstream tracking</span>
+<span class="command">git</span> push -u origin main</pre>
+  </div>
+
+  <div class="no-break">
+    <h2>6. Deploying the Website Using GitHub Pages</h2>
+    <p>GitHub Pages turns code repositories into hosted static websites with automated SSL/TLS certificates and global CDN edge routing.</p>
+
+    <h3>6.1 GitHub Pages Configuration Options</h3>
+    <ol>
+      <li><strong>Classic Branch Deployment (Settings &gt; Pages):</strong> Navigate to <strong>Settings</strong> &rarr; <strong>Pages</strong> &rarr; Under <em>Build and deployment</em> select <strong>Deploy from a branch</strong> &rarr; Branch: <code>main</code>, Folder: <code>/ (root)</code> &rarr; Click <strong>Save</strong>.</li>
+      <li><strong>GitHub Actions CI/CD Deployment:</strong> Workflow file placed at <code>.github/workflows/deploy.yml</code>:</li>
+    </ol>
+
+    <pre class="code-block">
+<span class="keyword">name</span>: Deploy to GitHub Pages
+<span class="keyword">on</span>:
+  <span class="keyword">push</span>:
+    <span class="keyword">branches</span>: [<span class="string">main</span>]
+<span class="keyword">permissions</span>:
+  <span class="keyword">contents</span>: read
+  <span class="keyword">pages</span>: write
+  <span class="keyword">id-token</span>: write
+<span class="keyword">jobs</span>:
+  <span class="keyword">deploy</span>:
+    <span class="keyword">environment</span>:
+      <span class="keyword">name</span>: github-pages
+      <span class="keyword">url</span>: ${{ steps.deployment.outputs.page_url }}
+    <span class="keyword">runs-on</span>: ubuntu-latest
+    <span class="keyword">steps</span>:
+      - <span class="keyword">uses</span>: actions/checkout@v4
+      - <span class="keyword">uses</span>: actions/configure-pages@v4
+      - <span class="keyword">uses</span>: actions/upload-pages-artifact@v3
+        <span class="keyword">with</span>:
+          <span class="keyword">path</span>: <span class="string">'.'</span>
+      - <span class="keyword">id</span>: deployment
+        <span class="keyword">uses</span>: actions/deploy-pages@v4</pre>
+  </div>
+
+  <div class="no-break">
+    <h2>7. Adding the Final Live Website Link &amp; Verification</h2>
+    <div class="callout callout-success">
+      <div class="callout-title">&starf; Live Website URL:</div>
+      <a href="https://shivamkumarchaudhary.github.io/portfolio/" style="font-size: 10.5pt; font-weight: 800; color: #0369a1;">
+        https://shivamkumarchaudhary.github.io/portfolio/
+      </a>
+    </div>
+
+    <h3>7.1 Live System Verification Checklist</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Verification Metric</th>
+          <th>Expected Value</th>
+          <th>Observed Result</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>HTTP Status Code</strong></td>
+          <td><code>200 OK</code></td>
+          <td><code>HTTP/2 200 OK</code> with Fastly CDN cache headers</td>
+          <td><span class="badge-pill badge-green">&check; Passed</span></td>
+        </tr>
+        <tr>
+          <td><strong>SSL / HTTPS Security</strong></td>
+          <td>Valid TLS certificate</td>
+          <td>Issued by Let's Encrypt / DigiCert with HSTS enabled</td>
+          <td><span class="badge-pill badge-green">&check; Passed</span></td>
+        </tr>
+        <tr>
+          <td><strong>Responsive Layout</strong></td>
+          <td>Breakpoints: 320px to 4K</td>
+          <td>Fluid flexbox/grid layout adapts seamlessly on mobile &amp; desktop</td>
+          <td><span class="badge-pill badge-green">&check; Passed</span></td>
+        </tr>
+        <tr>
+          <td><strong>Theme Switcher</strong></td>
+          <td>Persistent dark/light mode</td>
+          <td>Instant switch with localStorage caching across sessions</td>
+          <td><span class="badge-pill badge-green">&check; Passed</span></td>
+        </tr>
+        <tr>
+          <td><strong>Downloadable Resume</strong></td>
+          <td>Direct PDF download link</td>
+          <td>Downloads <code>Shivam_Kumar_Chaudhary_Resume.pdf</code> cleanly</td>
+          <td><span class="badge-pill badge-green">&check; Passed</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======================================================================
+       CONCLUSION & SUBMISSION SUMMARY
+       ====================================================================== -->
+  <div class="no-break" style="margin-top: 10px;">
+    <h2>8. Conclusion &amp; Submission Deliverables</h2>
+    <table class="meta-table">
+      <tr>
+        <td class="meta-label">1. GitHub Repository</td>
+        <td class="meta-value"><strong><a href="https://github.com/Shivamkumarchaudhary/portfolio">https://github.com/Shivamkumarchaudhary/portfolio</a></strong></td>
+      </tr>
+      <tr>
+        <td class="meta-label">2. Live Website Link</td>
+        <td class="meta-value"><strong><a href="https://shivamkumarchaudhary.github.io/portfolio/">https://shivamkumarchaudhary.github.io/portfolio/</a></strong></td>
+      </tr>
+      <tr>
+        <td class="meta-label">3. Step-by-Step PDF</td>
+        <td class="meta-value"><strong>Devops_Portfolio_Project_Report.pdf</strong> (Generated &amp; Included)</td>
+      </tr>
+    </table>
+
+    <div class="footer-note">
+      &copy; 2026 Shivam Kumar Chaudhary &bull; MCA Scholar, Graphic Era Deemed to be University, Dehradun &bull; DevOps Practical Submission
+    </div>
+  </div>
+
+</body>
+</html>

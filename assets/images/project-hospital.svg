@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350">
+  <defs>
+    <linearGradient id="medBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#042f2e" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="350" rx="16" fill="url(#medBg)" />
+  <rect x="2" y="2" width="596" height="346" rx="14" fill="none" stroke="#14b8a6" stroke-width="1.5" stroke-opacity="0.3" />
+  
+  <!-- Browser Header -->
+  <rect x="20" y="20" width="560" height="36" rx="8" fill="#022c22" />
+  <circle cx="45" cy="38" r="6" fill="#ef4444" />
+  <circle cx="65" cy="38" r="6" fill="#f59e0b" />
+  <circle cx="85" cy="38" r="6" fill="#10b981" />
+  <text x="300" y="43" font-family="monospace" font-size="13" fill="#2dd4bf" text-anchor="middle">medicare.portal/bed-allocation</text>
+  
+  <!-- Main Grid -->
+  <g transform="translate(40, 80)">
+    <!-- Doctor Card -->
+    <rect width="250" height="230" rx="12" fill="#064e3b" opacity="0.6" stroke="#059669" stroke-width="1" />
+    <text x="25" y="35" font-family="sans-serif" font-size="14" font-weight="700" fill="#a7f3d0">Doctor Recommendation</text>
+    <rect x="25" y="55" width="200" height="45" rx="8" fill="#022c22" />
+    <text x="38" y="76" font-family="sans-serif" font-size="12" font-weight="600" fill="#fff">Dr. S. K. Sharma (Cardio)</text>
+    <text x="38" y="92" font-family="sans-serif" font-size="10" fill="#34d399">Match Score: 98% (Symptoms)</text>
+    
+    <rect x="25" y="115" width="200" height="45" rx="8" fill="#022c22" />
+    <text x="38" y="136" font-family="sans-serif" font-size="12" font-weight="600" fill="#fff">Dr. Priya Verma (Neuro)</text>
+    <text x="38" y="152" font-family="sans-serif" font-size="10" fill="#34d399">Match Score: 94% (Specialty)</text>
+    
+    <rect x="25" y="175" width="200" height="30" rx="6" fill="#059669" />
+    <text x="125" y="195" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">Book Consultation</text>
+    
+    <!-- Bed Allocation Matrix -->
+    <g transform="translate(270, 0)">
+      <rect width="250" height="230" rx="12" fill="#0f172a" stroke="#334155" />
+      <text x="25" y="35" font-family="sans-serif" font-size="14" font-weight="700" fill="#38bdf8">Live Bed Allocation</text>
+      
+      <!-- Bed Grid -->
+      <g transform="translate(25, 60)">
+        <rect width="36" height="36" rx="6" fill="#10b981" /><text x="18" y="22" font-family="sans-serif" font-size="10" fill="#fff" text-anchor="middle">B1</text>
+        <rect x="44" width="36" height="36" rx="6" fill="#ef4444" /><text x="62" y="22" font-family="sans-serif" font-size="10" fill="#fff" text-anchor="middle">B2</text>
+        <rect x="88" width="36" height="36" rx="6" fill="#10b981" /><text x="106" y="22" font-family="sans-serif" font-size="10" fill="#fff" text-anchor="middle">B3</text>
+        <rect x="132" width="36" height="36" rx="6" fill="#f59e0b" /><text x="150" y="22" font-family="sans-serif" font-size="10" fill="#fff" text-anchor="middle">B4</text>
+        
+        <rect y="44" width="36" height="36" rx="6" fill="#10b981" /><text x="18" y="66" font-family="sans-serif" font-size="10" fill="#fff" text-anchor="middle">B5</text>
+        <rect x="44" y="44" width="36" height="36" rx="6" fill="#10b981" /><text x="62" y="66" font-family="sans-serif" font-size="10" fill="#fff" text-anchor="middle">B6</text>
+        <rect x="88" y="44" width="36" height="36" rx="6" fill="#ef4444" /><text x="106" y="66" font-family="sans-serif" font-size="10" fill="#fff" text-anchor="middle">B7</text>
+        <rect x="132" y="44" width="36" height="36" rx="6" fill="#10b981" /><text x="150" y="66" font-family="sans-serif" font-size="10" fill="#fff" text-anchor="middle">B8</text>
+      </g>
+      
+      <g transform="translate(25, 160)">
+        <circle cx="10" cy="10" r="5" fill="#10b981" /><text x="25" y="14" font-family="sans-serif" font-size="11" fill="#94a3b8">Available (14)</text>
+        <circle cx="10" cy="30" r="5" fill="#ef4444" /><text x="25" y="34" font-family="sans-serif" font-size="11" fill="#94a3b8">Occupied (8)</text>
+        <circle cx="110" cy="30" r="5" fill="#f59e0b" /><text x="125" y="34" font-family="sans-serif" font-size="11" fill="#94a3b8">Reserved (2)</text>
+      </g>
+    </g>
+  </g>
+</svg>
